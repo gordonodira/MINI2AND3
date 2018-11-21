@@ -8,6 +8,9 @@ class question extends Model
 {
     protected $fillable = ['body'];
 
+
+
+
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -16,4 +19,5 @@ class question extends Model
     {
         return $this->hasMany('App\Answer');
     }
+
 }
