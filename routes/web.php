@@ -20,7 +20,9 @@ Route::get('/user/{user_id}/profile/{profile_id}/edit', 'ProfileController@edit'
 Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
 Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')->name('profile.update');
 Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
+
 Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
+
 Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answers.show');
 Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerController@edit')->name('answers.edit');
 Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name('answers.store');
