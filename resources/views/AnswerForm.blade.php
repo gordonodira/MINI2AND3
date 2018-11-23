@@ -11,6 +11,7 @@
                             {!! Form::model($answer, ['route' => ['answers.store', $question], 'method' => 'post']) !!}
 
                         @else()
+                            
                             {!! Form::model($answer, ['route' => ['answers.update', $question, $answer], 'method' => 'patch']) !!}
                         @endif
                         <div class="form-group">
