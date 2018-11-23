@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Answer;
+
 use Illuminate\Support\Facades\Auth;
+
+
 
 class QuestionController extends Controller
 {
