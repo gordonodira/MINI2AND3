@@ -21,6 +21,8 @@ Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profil
 Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')->name('profile.update');
 Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
 
+
+
 Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
 
 Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answers.show');
@@ -33,6 +35,7 @@ Route::get('service/Post/view','PostController@view');
 Route::get('service/Post/create','PostController@create');
 Route::get('service/Post/update','PostController@update');
 Route::get('service/Post/delete','PostController@delete');
+
 
 Route::resources([
     'questions' => 'QuestionController',

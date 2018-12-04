@@ -67,7 +67,9 @@
 
                                 @else
                                     <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
-                                @endif
+
+
+                                    @endif
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"

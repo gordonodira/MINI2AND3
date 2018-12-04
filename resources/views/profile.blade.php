@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container">
         <div class="row ">
@@ -17,6 +18,12 @@
                             Edit
                         </a>
                     </div>
+                    <div class="card-footer">
+                        <a class="btn btn-success float-right" href="{{ route('profile.update', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
+                            Update
+                        </a>
+                    </div>
+
 
                 </div>
             </div>
