@@ -48,6 +48,11 @@ class PostController extends Controller
         $post->save();
         return back();
     }
+    public function show($id)
+    {
+        $post = Post::published()->findOrFail($id);
+        return view('posts.show', compact('post'));
+    }
 
 };
 
