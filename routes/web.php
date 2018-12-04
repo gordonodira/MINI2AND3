@@ -28,6 +28,12 @@ Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerControlle
 Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name('answers.store');
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
+
+Route::get('service/Post/view','PostController@view');
+Route::get('service/Post/create','PostController@create');
+Route::get('service/Post/update','PostController@update');
+Route::get('service/Post/delete','PostController@delete');
+
 Route::resources([
     'questions' => 'QuestionController',
 ]);
