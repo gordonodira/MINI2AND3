@@ -42,6 +42,12 @@ class PostController extends Controller
         $post->fill($data)->save();
         return back();
     }
+    public function publish(Post $post)
+    {
+        $post->published = true;
+        $post->save();
+        return back();
+    }
 
 };
 
