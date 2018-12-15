@@ -58,6 +58,10 @@
 @endsection
 
 @push('scripts')
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
     <script>
 
@@ -70,8 +74,32 @@
 
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function (data) {
-            console.log(data);
-            alert(JSON.stringify(data));
+            console.log(data.message);
+            var parsed = data.message;
+
+            var html = '<div class="col-sm-4 d-flex align-items-stretch">\n' +
+                '                                        <div class="card mb-3 ">\n' +
+                '                                            <div class="card-header">\n' +
+                '                                                <small class="text-muted">\n' +
+                '                                                    Updated: ' + parsed.updated_at +
+                '                                                    Answers: 0' +
+                '                                                </small>' +
+                '                                            </div>' +
+                '                                            <div class="card-body">' +
+                '                                                <p class="card-text">' + parsed.body + '</p>\n' +
+                '                                            </div>' +
+                '                                            <div class="card-footer">' +
+                '                                                <p class="card-text">' +
+                '                                                    <a class="btn btn-primary float-right"\n' +
+                '                                                       href=/questions.show/"' + parsed.id + '">' +
+                '                                                        View' +
+                '                                                    </a>' +
+                '                                                </p>' +
+                '                                            </div>' +
+                '                                        </div>' +
+                '                                    </div>';
+
+            $('.card-dock').append(html);
         });
     </script>
 @endpush

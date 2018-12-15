@@ -29,23 +29,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-
         $question = new Question;
         $edit = FALSE;
-
-        $options = array(
-            'cluster' => 'us2',
-            'useTLS' => true
-        );
-        $pusher = new Pusher(
-            '8e495aaada51de4dab46',
-            'ee3fd040140d00aa93e2',
-            '673203',
-            $options
-        );
-
-        $data['message'] = $question;
-        $pusher->trigger('my-channel', 'my-event', $data);
 
         return view('questionForm', ['question' => $question,'edit' => $edit  ]);
 
@@ -72,6 +57,20 @@ class QuestionController extends Controller
         $question = new Question($input);
         $question->user()->associate(Auth::user());
         $question->save();
+
+        $options = array(
+            'cluster' => 'us2',
+            'useTLS' => false
+        );
+        $pusher = new Pusher(
+            '8e495aaada51de4dab46',
+            'ee3fd040140d00aa93e2',
+            '673203',
+            $options
+        );
+
+        $data['message'] = $question;
+        $pusher->trigger('my-channel', 'my-event', $data);
 
         return redirect()->route('home')->with('message', 'IT WORKS!');
 
