@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use Gate;
 use App\Http\Requests\UpdaPost as UpdatePostRequest;
+//use Illuminate\Post\Auth;
+
+
 class PostController extends Controller
 {
 
@@ -15,6 +18,7 @@ class PostController extends Controller
     {
         $posts = Post::published()->paginate();
         return view('posts.index', compact('posts'));
+
     }
     public function create()
     {

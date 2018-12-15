@@ -50,8 +50,18 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
+
+
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ route('list_drafts') }}">Drafts</a>
+                        </li>
+                    </ul>
+
+
                     @guest
                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
@@ -86,11 +96,7 @@
                             </div>
                         </li>
                     @endguest
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="{{ route('list_drafts') }}">Drafts</a>
-                        </li>
-                    </ul>
+
 
                     </ul>
             </div>

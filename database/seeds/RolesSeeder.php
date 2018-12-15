@@ -10,17 +10,17 @@ class RolesSeeder extends Seeder
         $author = Role::create([
             'name' => 'Author',
             'slug' => 'author',
-            'permissions' => [
+            'permissions' => json_encode([
                 'create-post' => true,
-            ]
+            ]),
         ]);
         $editor = Role::create([
             'name' => 'Editor',
             'slug' => 'editor',
-            'permissions' => [
+            'permissions' =>json_encode( [
                 'update-post' => true,
                 'publish-post' => true,
-            ]
+            ]),
         ]);
     }
 }

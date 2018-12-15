@@ -14,6 +14,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
@@ -33,13 +34,15 @@ Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@up
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
 
+Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
 
 
 
 
-Route::get('/', 'PostController@index');
-Route::get('/posts', 'PostController@index')->name('list_posts');
+Route::get('/posts.show', 'PostController@index')->name('posts.show');
+//Route::get('/posts/{index}', 'PostController@index')->name('list_posts');
 Route::group(['prefix' => 'posts'], function () {
+    Route::get('/index/{post}', 'PostController@index')->name('list_posts');
     Route::get('/drafts', 'PostController@drafts')->name('list_drafts')->middleware('auth');
     Route::get('/show/{id}', 'PostController@show')->name('show_post');
     Route::get('/create', 'PostController@create')->name('create_post')->middleware('can:create-post');
