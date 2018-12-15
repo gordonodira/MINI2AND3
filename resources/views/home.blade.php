@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Questions
                         <a class="btn btn-primary float-right" href="{{ route('questions.create') }}">
-                          Create a Question
+                            Create a Question
                         </a>
 
                         <div class="card-body">
@@ -29,7 +29,8 @@
                                             <div class="card-footer">
                                                 <p class="card-text">
 
-                                                    <a class="btn btn-primary float-right" href="{{ route('questions.show', ['id' => $question->id]) }}">
+                                                    <a class="btn btn-primary float-right"
+                                                       href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                         View
                                                     </a>
                                                 </p>
@@ -38,16 +39,11 @@
                                     </div>
                                 @empty
 
-                                        There are no Questions . You can Create a Question
+                                    There are no Questions . You can Create a Question
 
                                 @endforelse
-
-
                             </div>
-
                         </div>
-
-
                         <div class="card-footer">
                             <div class="float-right">
                                 {{ $questions->links() }}
@@ -60,3 +56,22 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+    <script>
+
+        // Enable pusher logging - don't include this in production
+
+        var pusher = new Pusher('8e495aaada51de4dab46', {
+            cluster: 'us2',
+            forceTLS: true
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function (data) {
+            console.log(data);
+            alert(JSON.stringify(data));
+        });
+    </script>
+@endpush

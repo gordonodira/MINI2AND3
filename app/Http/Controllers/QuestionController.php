@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use Pusher\Pusher;
 
 class QuestionController extends Controller
 {
@@ -23,9 +24,8 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Pusher\PusherException
      */
     public function create()
     {
@@ -37,7 +37,7 @@ class QuestionController extends Controller
             'cluster' => 'us2',
             'useTLS' => true
         );
-        $pusher = new Pusher\Pusher(
+        $pusher = new Pusher(
             '8e495aaada51de4dab46',
             'ee3fd040140d00aa93e2',
             '673203',
