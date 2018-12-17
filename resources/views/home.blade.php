@@ -91,7 +91,7 @@
                 '                                            <div class="card-footer">' +
                 '                                                <p class="card-text">' +
                 '                                                    <a class="btn btn-primary float-right"\n' +
-                '                                                       href=/questions.show/"' + parsed.id + '">' +
+                '                                                       href="/questions.show/' + parsed.id + '">' +
                 '                                                        View' +
                 '                                                    </a>' +
                 '                                                </p>' +
@@ -99,7 +99,7 @@
                 '                                        </div>' +
                 '                                    </div>';
 
-            $('.card-dock').append(html);
+            $('.card-deck').append(html);
         });
     </script>
 @endpush

@@ -21,4 +21,13 @@ class QuestionTest extends TestCase
         $question->user()->associate($user);
         $this->assertTrue($question->save());
     }
+
+    public function testPush()
+    {
+        $user = $user = factory(\App\User::class)->make();
+        $user->save();
+        $question = factory(\App\Question::class)->make();
+        $question->user()->associate($user);
+        $this->assertTrue($question->save());
+    }
 }
